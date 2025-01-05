@@ -1,22 +1,68 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { BsPencilSquare } from "react-icons/bs";
+
 
 const Header = () => {
   const { user, logOut } = useAuth();
 
-    const menus = 
-        (<div className="flex gap-2 text-base capitalize">
-            <span><NavLink className="navlink" to='/'>home</NavLink></span>
-            <span><NavLink className="navlink" to='/queries' >queries</NavLink></span>
-            <span><NavLink className="navlink" to='/about' >about</NavLink></span>
-        </div>)
+  const menus = (
+    <div className="flex gap-2 text-base capitalize">
+      <span>
+        <NavLink
+          className="navlink"
+          to="/"
+        >
+          home
+        </NavLink>
+      </span>
+      <span>
+        <NavLink
+          className="navlink"
+          to="/queries"
+        >
+          queries
+        </NavLink>
+      </span>
+      <span>
+        <NavLink
+          className="navlink"
+          to="/about"
+        >
+          about
+        </NavLink>
+      </span>
+    </div>
+  );
 
-    const dropdownMenu = 
-    (<div className="dropdownMenu">
-        <span><NavLink className="navlink" to='/'>home</NavLink></span>
-        <span><NavLink className="navlink" to='/queries' >queries</NavLink></span>
-        <span><NavLink className="navlink" to='/about' >about</NavLink></span>
-    </div>)
+  const dropdownMenu = (
+    <div className="dropdownMenu">
+      <span>
+        <NavLink
+          className="navlink"
+          to="/"
+        >
+          home
+        </NavLink>
+      </span>
+      <span>
+        <NavLink
+          className="navlink"
+          to="/queries"
+        >
+          queries
+        </NavLink>
+      </span>
+      <span>
+        <NavLink
+          className="navlink"
+          to="/about"
+        >
+          about
+        </NavLink>
+      </span>
+    </div>
+  );
 
   return (
     <div className="container mx-auto border-b-[1px] border-[#f1f1f1]">
@@ -50,35 +96,59 @@ const Header = () => {
               {dropdownMenu}
             </div>
           </div>
-          <Link to='/' className="w-28"><img src='../../public/logo.png' alt="" className="object-fit"/></Link>
-          
+          <Link
+            to="/"
+            className="w-28"
+          >
+            <img
+              src="../../public/logo.png"
+              alt=""
+              className="object-fit"
+            />
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-          {menus}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{menus}</ul>
         </div>
         <div className="navbar-end">
-            {
-                user ? (
-                    <>
-                        <Link onClick={logOut}>
-                            <button className="btn1">Logout</button>
-                        </Link>
+          {user ? (
+            <>
+              {/* profile set krte hbe */}
 
-                        {/* profile set krte hbe */}
-                        
-                    </>
-
-                ):(
-                <>
-                    <Link to='/login'>
-                        <button className="btn1">Login</button>
+              <div className="dropdown dropdown-bottom dropdown-end flex items-center">
+                <Link to='/add-query'>
+                  <div className="flex items-center gap-2 text-gray-500 hover:text-black"><BsPencilSquare className="text-xl" /><h4 className="text-base">Add Query</h4></div>
+                </Link>
+                
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="m-1 flex items-center gap-2"
+                >
+                  <img src={`${user.photoURL}`} className="w-10 h-10 object-cover rounded-full" alt="" />
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content text-base menu bg-base-100 rounded-box z-[100] w-52 p-2 shadow"
+                >
+                  <li><Link>My Queries</Link></li>
+                  <li><Link>My Recommendations</Link></li>
+                  <li><Link>Recommendations for me</Link></li>
+                  <li onClick={logOut}>
+                    <Link className="hover:bg-transparent">
+                      <button className="btn1">Logout</button>
                     </Link>
-                </>
-                )
-            }
-            
+                  </li>
+                </ul>
+              </div>
+            </>
+          ) : (
+            <>
+              <Link to="/login">
+                <button className="btn1">Login</button>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@ const Slide = ({ image, text, btnText="Post a Query" }) => {
       <div className='flex items-center justify-center w-full h-full '>
         <div className='flex-row md:flex gap-5 w-full'>
             <div className='w-full pl-20 md:p-28'>
-                <h1 className='text-2xl md:text-4xl   uppercase font-semibold text-white '>
+                <h1 className='text-2xl md:text-4xl  uppercase font-semibold text-white '>
                     {text}
                 </h1>
                 <br />

@@ -39,18 +39,22 @@ const AuthProvider = ({ children }) => {
     return signOut(auth)
   }
 
-  const updateUserProfile = (name, photo) => {
-    return updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: photo,
-    })
-  }
+
+  // update data
+  const updateUserProfile = (updatedData) => {
+    return updateProfile(auth.currentUser, updatedData).then(() => {
+      setUser((prevUser) => ({
+        ...prevUser,
+        ...updatedData,
+      }));
+    });
+  };
 
   // onAuthStateChange
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser)
-      console.log('CurrentUser-->', currentUser)
+      console.log('CurrentUser: ', currentUser)
       setLoading(false)
     })
     return () => {
