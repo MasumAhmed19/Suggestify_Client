@@ -125,7 +125,7 @@ const Header = () => {
                   role="button"
                   className="m-1 flex items-center gap-2"
                 >
-                  <img src={`${user.photoURL}`} className="w-10 h-10 object-cover rounded-full" alt="" />
+                  <img src={`${user.photoURL}`} referrerPolicy="no-referrer" className="w-10 h-10 object-cover rounded-full" alt="" />
                 </div>
                 <ul
                   tabIndex={0}
