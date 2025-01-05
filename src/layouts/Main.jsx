@@ -6,7 +6,9 @@ const Main = () => {
     return (
         <div>
             {/* Header */}
-            <Header /> 
+            <div className="">
+                <Header /> 
+            </div>
 
             {/* Outlet */}
             <div className='min-h-[calc(100vh-306px)]'>
