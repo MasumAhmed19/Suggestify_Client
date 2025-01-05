@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import axios from 'axios'
 
 const AddQueryPage = () => {
   const { user } = useAuth();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const form = e.target;
@@ -17,6 +18,11 @@ const AddQueryPage = () => {
     const recommendationCount=0;
 
     const queryData = {
+        queryer:{
+            email: user?.email,
+            name: user?.displayName,
+            photo: user?.photoURL
+        },
         productName,
         productBrand,
         productImage,
@@ -27,10 +33,22 @@ const AddQueryPage = () => {
     }
 
     // Add API call or database integration here
+    try{
+        await axios.post(`${import.meta.env.VITE_API_URL}/add-query`, queryData)
+        // form.reset()
+        console.log("data posted")
+
+        // TOAST: form filled toast
+        // navigate to my query page
+
+    }catch (err){
+        console.log(err)
+    }
+
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center g4 p-4">
+    <div className="h-screen flex flex-col items-center g4 p-4">
       {/* Query Form Container */}
       <div className="container bg-white rounded-md  p-10 mt-10">
         <h4 className="text-center text-xl font-semibold mb-2">
@@ -51,7 +69,7 @@ const AddQueryPage = () => {
               <div className="form-control">
                 <input
                   type="text"
-                  placeholder={`${user.email}`}
+                  placeholder={`${user?.email}`}
                   className="input input-bordered w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
                   disabled
                 />
