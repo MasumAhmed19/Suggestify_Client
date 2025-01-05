@@ -48,23 +48,23 @@
 /* Gradient */
 
 .g1 {
-  background: linear-gradient(to right, transparent, #effcc8, transparent);
+  background: linear-gradient(to right, transparent, #ECE5FE, transparent);
 }
 
 .g2 {
-  background: linear-gradient(to right, #effcc8, transparent, #effcc8);
+  background: linear-gradient(to right, #ECE5FE, transparent, #ECE5FE);
 }
 
 .g3 {
-  background: linear-gradient(#effcc8, transparent);
+  background: linear-gradient(#ECE5FE, transparent);
 }
 
 .g4 {
-  background:  radial-gradient(#effcc8, transparent)
+  background:  radial-gradient(#ECE5FE, transparent)
 }
 
 .g5 {
-  background: linear-gradient(transparent, #effcc8);
+  background: linear-gradient(transparent, #ECE5FE);
 }
 
 
