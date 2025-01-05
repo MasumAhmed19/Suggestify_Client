@@ -15,7 +15,6 @@ const Queries = () => {
         setQueries(data)
     }
 
-    console.log(queries)
     return (
         <div className='max-w-screen-xl mx-auto py-[40px]'>
 
@@ -27,7 +26,7 @@ const Queries = () => {
                 </div>
 
                 {/* Sidebar */}
-                <div className='col-span-1 sticky top-0'>
+                <div className='col-span-1 '>
                     <Sidebar />
                 </div>
 

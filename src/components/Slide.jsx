@@ -17,7 +17,7 @@ const Slide = ({ image, text, btnText="Post a Query" }) => {
                 </h1>
                 <br />
                 <Link
-                    to='/add-job'
+                    to='/add-query'
                     className='btn1 w-full'
                 >
                     {btnText}

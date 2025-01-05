@@ -31,11 +31,11 @@ const router = createBrowserRouter([
         path: "/add-query",
         element: <AddQueryPage />
       },{
-        path: "/my-queries",
+        path: "/my-queries/:email",
         element: <MyQueries />
       },{
         // kaj krte hbeeee
-        path:'queries/:id',
+        path:'query/:id',
         element:<QueryDetailPage></QueryDetailPage>
       }
     ],

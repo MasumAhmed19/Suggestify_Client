@@ -52,7 +52,7 @@ const AddQueryPage = () => {
 
 
         // navigate to my query page
-        navigate('/my-queries')
+        navigate(`/my-queries/${user?.email}`)
 
     }catch (err){
         console.log(err)
@@ -61,7 +61,7 @@ const AddQueryPage = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col items-center g4 p-4">
+    <div className="py-[70px] flex flex-col items-center g4 ">
       {/* Query Form Container */}
       <div className="container bg-white rounded-md  p-10 mt-10">
         <h4 className="text-center text-xl font-semibold mb-2">

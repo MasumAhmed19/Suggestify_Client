@@ -131,7 +131,7 @@ const Header = () => {
                   tabIndex={0}
                   className="dropdown-content text-base menu bg-base-100 rounded-box z-[100] w-52 p-2 shadow"
                 >
-                  <li><Link>My Queries</Link></li>
+                  <li><Link to={`/my-queries/${user?.email}`}>My Queries</Link></li>
                   <li><Link>My Recommendations</Link></li>
                   <li><Link>Recommendations for me</Link></li>
                   <li onClick={logOut}>

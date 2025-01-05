@@ -59,7 +59,7 @@ const QueryCard = ({ el }) => {
           <button className="flex items-center gap-2 text-sm text-[#7201FF]">
             <CiCirclePlus className="text-lg" /> Add Recommendation
           </button>
-          <Link to={`/queries/${_id}`} className="flex items-center gap-2 text-sm  text-[#7201FF]">
+          <Link to={`/query/${_id}`} className="flex items-center gap-2 text-sm  text-[#7201FF]">
             <FaEye className="text-lg" /> Read Details
           </Link>
         </div>
