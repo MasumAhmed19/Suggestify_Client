@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import TabSection from "../components/TabSection";
+import { Sidebar } from '../components/Sidebar';
 
 const Queries = () => {
     const [queries, setQueries] = useState([]);
@@ -15,8 +17,23 @@ const Queries = () => {
 
     console.log(queries)
     return (
-        <div>
-            <h2>Queries: {queries.length}</h2>
+        <div className='max-w-screen-xl mx-auto py-[40px]'>
+
+            <div className='grid md:grid-cols-4 grid-cols-1'>
+
+                {/* Tab */}
+                <div className='md:col-span-3'>
+                    <TabSection queries={queries} />
+                </div>
+
+                {/* Sidebar */}
+                <div className='col-span-1 sticky top-0'>
+                    <Sidebar />
+                </div>
+
+            </div>
+
+
         </div>
     );
 };

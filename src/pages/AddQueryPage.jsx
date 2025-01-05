@@ -1,9 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import axios from 'axios'
+import { useState } from "react";
+import { format } from 'date-fns'
+import { toast } from 'react-hot-toast'
+
 
 const AddQueryPage = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
+
+  const [date, setDate] = useState(format(new Date(), 'P'))
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,16 +38,21 @@ const AddQueryPage = () => {
         problemFaced,
         recommendationCount,
         queryCategory,
+        addedTime: date
     }
 
     // Add API call or database integration here
     try{
         await axios.post(`${import.meta.env.VITE_API_URL}/add-query`, queryData)
-        // form.reset()
+        form.reset()
         console.log("data posted")
 
         // TOAST: form filled toast
+        toast.success('Query Added Successfully!!!')
+
+
         // navigate to my query page
+        navigate('/my-queries')
 
     }catch (err){
         console.log(err)

@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import AboutPage from "../pages/AboutPage";
 import AddQueryPage from "../pages/AddQueryPage";
+import MyQueries from "../pages/MyQueries";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,9 @@ const router = createBrowserRouter([
       },{
         path: "/add-query",
         element: <AddQueryPage />
+      },{
+        path: "/my-queries",
+        element: <MyQueries />
       }
     ],
   },

@@ -4,6 +4,11 @@ https://i.ibb.co.com/1qvx2f3/bgimg3.jpg
 https://i.ibb.co.com/YyBZGQ8/bg.png
 https://i.ibb.co.com/kxzGcv3/bg2.jpg
 https://i.ibb.co.com/WKWSCHN/logo.png
+https://i.ibb.co.com/qJF1yk9/smartphon-X.jpg
+https://i.ibb.co.com/Jy3w0ff/Laptop-A.jpg
+https://i.ibb.co.com/CPVB4ty/Smartwatch-COLMIP76blackbuttonleftview.jpg
+https://i.ibb.co.com/Lhncyn9/smart-purifier7.jpg
+https://i.ibb.co.com/GJJwJhh/Electric-Toothbrush.jpg
 
 "query": {
     "productName": "Wireless Earbuds Q",
