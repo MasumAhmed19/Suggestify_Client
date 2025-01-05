@@ -64,22 +64,36 @@ const TabSection = ({queries}) => {
             <CustomTabPanel value={value} index={0}>
                 <div className='flex flex-col gap-8'>
                     {queries.map(el=>(
-                        <QueryCard key={el._id} el={el}  />
+                        <QueryCard key={el?._id} el={el}  />
                     ))}
 
                 </div>
             </CustomTabPanel>
-
+            {/* Technology */}
             <CustomTabPanel value={value} index={1}>
-                Item Two
+                <div className='flex flex-col gap-8'>
+                    {queries.filter(el => el?.queryCategory === 'Technology').map(el => (
+                        <QueryCard key={el?._id} el={el} />
+                    ))}
+                </div>
             </CustomTabPanel>
 
+            {/* Home Appliance */}
             <CustomTabPanel value={value} index={2}>
-                Item Three
+                <div className='flex flex-col gap-8'>
+                    {queries.filter(el => el?.queryCategory === 'Home Appliance').map(el => (
+                        <QueryCard key={el?._id} el={el} />
+                    ))}
+                </div>
             </CustomTabPanel>
 
+            {/* Personal Care */}
             <CustomTabPanel value={value} index={3}>
-                Item four
+                <div className='flex flex-col gap-8'>
+                    {queries.filter(el => el?.queryCategory === 'Personal Care').map(el => (
+                        <QueryCard key={el?._id} el={el} />
+                    ))}
+                </div>
             </CustomTabPanel>
         </Box>
     );

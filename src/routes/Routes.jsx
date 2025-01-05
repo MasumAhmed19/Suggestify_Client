@@ -8,6 +8,7 @@ import SignUp from "../pages/SignUp";
 import AboutPage from "../pages/AboutPage";
 import AddQueryPage from "../pages/AddQueryPage";
 import MyQueries from "../pages/MyQueries";
+import QueryDetailPage from "../pages/QueryDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       },{
         path: "/my-queries",
         element: <MyQueries />
+      },{
+        // kaj krte hbeeee
+        path:'queries/:id',
+        element:<QueryDetailPage></QueryDetailPage>
       }
     ],
   },

@@ -22,7 +22,7 @@ const Queries = () => {
             <div className='grid md:grid-cols-4 grid-cols-1'>
 
                 {/* Tab */}
-                <div className='md:col-span-3'>
+                <div className='col-span-1 md:col-span-3'>
                     <TabSection queries={queries} />
                 </div>
 
