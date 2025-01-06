@@ -101,7 +101,7 @@ const Header = () => {
             className="w-28"
           >
             <img
-              src="../../public/logo.png"
+              src="/logo.png"
               alt=""
               className="object-fit"
             />

@@ -38,11 +38,9 @@ function a11yProps(index) {
 }
 
 // Main Tab Section Component
-const TabSection = ({queries}) => {
+const TabSection = ({queries, fetAllQueries}) => {
     const [value, setValue] = useState(0);
-    console.log({queries})
     // const { queryer, productName, productBrand, productImg, queryTitle, problemFaced, addedTime } = queries || {}
-
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -64,7 +62,7 @@ const TabSection = ({queries}) => {
             <CustomTabPanel value={value} index={0}>
                 <div className='flex flex-col gap-8'>
                     {queries.map(el=>(
-                        <QueryCard key={el?._id} el={el}  />
+                        <QueryCard key={el?._id} el={el} fetAllQueries={fetAllQueries}  />
                     ))}
 
                 </div>
@@ -73,7 +71,7 @@ const TabSection = ({queries}) => {
             <CustomTabPanel value={value} index={1}>
                 <div className='flex flex-col gap-8'>
                     {queries.filter(el => el?.queryCategory === 'Technology').map(el => (
-                        <QueryCard key={el?._id} el={el} />
+                        <QueryCard key={el?._id} el={el}  />
                     ))}
                 </div>
             </CustomTabPanel>
@@ -82,7 +80,7 @@ const TabSection = ({queries}) => {
             <CustomTabPanel value={value} index={2}>
                 <div className='flex flex-col gap-8'>
                     {queries.filter(el => el?.queryCategory === 'Home Appliance').map(el => (
-                        <QueryCard key={el?._id} el={el} />
+                        <QueryCard key={el?._id} el={el}  />
                     ))}
                 </div>
             </CustomTabPanel>

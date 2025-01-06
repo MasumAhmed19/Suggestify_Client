@@ -22,7 +22,7 @@ const Queries = () => {
 
                 {/* Tab */}
                 <div className='col-span-1 md:col-span-3'>
-                    <TabSection queries={queries} />
+                    <TabSection queries={queries} fetAllQueries={fetAllQueries} />
                 </div>
 
                 {/* Sidebar */}

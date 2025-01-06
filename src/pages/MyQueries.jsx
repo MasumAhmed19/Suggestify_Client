@@ -23,7 +23,6 @@ const MyQueries = () => {
     setQuery(data);
   };
 
-  console.log(query)
 
   return (
     <div className='max-w-screen-xl mx-auto py-[40px]'>
@@ -33,7 +32,7 @@ const MyQueries = () => {
                 <div className='col-span-1 md:col-span-3'>
                     <div className='flex flex-col gap-8'>
                         {query && query.map(el=>(
-                            <QueryCard key={el?._id} el={el}  />
+                            <QueryCard key={el?._id} el={el} fetchQueryData={fetchQueryData} />
                         ))}
 
                     </div>

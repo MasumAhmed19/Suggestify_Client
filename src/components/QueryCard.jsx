@@ -1,8 +1,17 @@
-import { FaComments, FaEye, FaHandSparkles } from "react-icons/fa";
-import { CiCirclePlus } from "react-icons/ci";
-import { Link } from "react-router-dom";
+import { FaComments, FaEye, FaHandSparkles, FaSave  } from "react-icons/fa";
+import { LuCirclePlus } from "react-icons/lu";
+import { AiFillDelete } from "react-icons/ai";
 
-const QueryCard = ({ el }) => {
+import { FaGear } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import { HiDotsHorizontal } from "react-icons/hi";
+import useAuth from "../hooks/useAuth";
+import axios from "axios";
+import toast from "react-hot-toast";
+
+const QueryCard = ({ el, fetchQueryData, fetAllQueries }) => {
+  const {user} = useAuth();
+
   const {
     _id,
     queryer,
@@ -14,19 +23,86 @@ const QueryCard = ({ el }) => {
     addedTime,
   } = el || {};
 
+  let parbe;
+  if(queryer?.email===user?.email){
+    parbe=true;
+  }else{
+    parbe=false;
+
+  }
+
+  const handleDelete = async (id)=>{
+    if(queryer?.email===user?.email){
+      try{
+        const res = await axios.delete(`${import.meta.env.VITE_API_URL}/delete/${id}`);
+        if(res.status === 200){
+          toast.success('Data Successfully Deleted')
+          fetchQueryData();
+          fetAllQueries();
+        }else{
+          toast.error('Failed to Delete')
+        }
+        
+      }catch(err){
+        console.log(err)
+      }
+    }else{
+      toast.error('You cannot delete others query')  
+    }
+      
+  }
+
   return (
-    <section className="p-4 bg-white rounded-md">
-      <div className="flex flex-col md:flex-row gap-4">
-        {/* Left Section: Queryer Info & Title */}
-        <div className="flex flex-col gap-3 w-full md:w-2/3">
-          <div className="flex gap-3 items-center">
-            <img
-              src={queryer?.photo}
-              className="w-8 h-8 object-cover rounded-full"
-              alt=""
-            />
-            <h2 className="text-sm text-gray-500">{queryer.name}</h2>
+    <section className="p-4 bg-white rounded-md space-y-3">
+      <div className="flex items-center justify-between">
+        <div className="flex gap-3 items-center">
+          <img
+            src={queryer?.photo}
+            className="w-8 h-8 object-cover rounded-full"
+            alt=""
+          />
+          <div>
+            <h2 className="text-sm text-gray-800">{queryer.name}</h2>
           </div>
+        </div>
+        <div className="dropdown dropdown-end cursor-pointer">
+          <div
+            tabIndex={0}
+            role=""
+            className="m-1"
+          >
+            <HiDotsHorizontal />
+          </div>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow space-y-2"
+          >
+            <li>
+              <Link className={`${parbe? 'hover:text-[#7201FF]': 'text-gray-400 cursor-not-allowed'} flex gap-2 items-center text-md `}>
+                <FaGear />
+                Update your query
+              </Link>
+            </li>
+
+            <li className="">
+              <Link onClick={()=>handleDelete(_id)} className={`${parbe? 'hover:text-[#7201FF]': 'text-gray-400 cursor-not-allowed'} flex gap-2 items-center text-md`}>
+                <AiFillDelete /> Delete your query
+              </Link>
+            </li>
+
+            <li>
+              <Link className="flex gap-2 items-center text-md hover:text-[#7201FF]">
+                <FaSave />Save this query
+              </Link>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row gap-4">
+        {/* Left Section */}
+        <div className="flex flex-col gap-3 w-full md:w-2/3">
           <h3 className="text-2xl font-semibold">{queryTitle}</h3>
           <p className="text-gray-600">
             {problemFaced.split(" ").slice(0, 15).join(" ") + "..."}
@@ -50,17 +126,28 @@ const QueryCard = ({ el }) => {
           <button className="flex items-center gap-2 text-gray-600 hover:text-gray-800">
             <FaHandSparkles /> 1.1k
           </button>
-          <button className="flex items-center gap-2 text-gray-600 hover:text-gray-800">
+          <Link
+            to={`/query/${_id}`}
+            className="flex items-center gap-2 text-gray-600 hover:text-gray-800"
+          >
             <FaComments /> 5
-          </button>
+          </Link>
         </div>
 
         <div className="flex  gap-3 items-center">
-          <button className="flex items-center gap-2 text-sm text-[#7201FF]">
-            <CiCirclePlus className="text-lg" /> Add Recommendation
-          </button>
-          <Link to={`/query/${_id}`} className="flex items-center gap-2 text-sm  text-[#7201FF]">
-            <FaEye className="text-lg" /> Read Details
+          <Link
+            className="flex items-center gap-2 text-sm text-[#7201FF] tooltip"
+            data-tip="Add Recommendation"
+          >
+            <LuCirclePlus className="text-lg" /> Add Recommendation
+          </Link>
+          <Link
+            to={`/query/${_id}`}
+            className="flex items-center gap-2 text-sm  text-[#7201FF] tooltip"
+            data-tip="Read Details"
+          >
+            <FaEye className="text-lg" />
+            Read Detail
           </Link>
         </div>
       </div>

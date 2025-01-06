@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { Sidebar } from "../components/Sidebar";
 import { FaComments, FaHandSparkles } from "react-icons/fa";
+import RecommendationForm from "../components/RecommendationForm";
 
 const QueryDetailPage = () => {
   const { user } = useAuth();
@@ -81,13 +82,19 @@ const QueryDetailPage = () => {
             <hr />
 
             <div className="flex flex-col gap-5">
-                <h2>Recommendations: 5</h2>
+                <div>
+                  <h2 className="text-lg font-semibold">Do you have any solutions?</h2>
+                  <p className="">Please recommend something that can solve the addressed issue by filling up the form.</p>
+                </div>
                 {/* form for recommendations */}
                 <div>
-
+                  {
+                    user ? <RecommendationForm query={query}/>  : (<Link to='/login' className="btn1">Write your recommendation</Link>)
+                  }
                 </div>
 
                 {/* all recommendations for this post */}
+                <div></div>
             </div>
 
           </div>
