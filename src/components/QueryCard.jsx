@@ -3,7 +3,7 @@ import { LuCirclePlus } from "react-icons/lu";
 import { AiFillDelete } from "react-icons/ai";
 
 import { FaGear } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HiDotsHorizontal } from "react-icons/hi";
 import useAuth from "../hooks/useAuth";
 import axios from "axios";
@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 
 const QueryCard = ({ el, fetchQueryData, fetAllQueries }) => {
   const {user} = useAuth();
+  const navigate = useNavigate()
 
   const {
     _id,
@@ -32,7 +33,7 @@ const QueryCard = ({ el, fetchQueryData, fetAllQueries }) => {
   }
 
   const handleDelete = async (id)=>{
-    if(queryer?.email===user?.email){
+    if(parbe){
       try{
         const res = await axios.delete(`${import.meta.env.VITE_API_URL}/delete/${id}`);
         if(res.status === 200){
@@ -49,7 +50,15 @@ const QueryCard = ({ el, fetchQueryData, fetAllQueries }) => {
     }else{
       toast.error('You cannot delete others query')  
     }
-      
+  }
+  
+  
+  const handleUpdate = async (id)=>{
+    if(!parbe){
+      toast.error('You cannot update others query')  
+    }else{
+      navigate(`/update/${id}`)
+    }
   }
 
   return (
@@ -78,9 +87,8 @@ const QueryCard = ({ el, fetchQueryData, fetAllQueries }) => {
             className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow space-y-2"
           >
             <li>
-              <Link className={`${parbe? 'hover:text-[#7201FF]': 'text-gray-400 cursor-not-allowed'} flex gap-2 items-center text-md `}>
-                <FaGear />
-                Update your query
+              <Link onClick={()=>handleUpdate(_id)}  className={`${parbe? 'hover:text-[#7201FF]': 'text-gray-400 cursor-not-allowed'} flex gap-2 items-center text-md `}>
+                <FaGear /> Update your query
               </Link>
             </li>
 
@@ -136,6 +144,7 @@ const QueryCard = ({ el, fetchQueryData, fetAllQueries }) => {
 
         <div className="flex  gap-3 items-center">
           <Link
+            to='/'
             className="flex items-center gap-2 text-sm text-[#7201FF] tooltip"
             data-tip="Add Recommendation"
           >

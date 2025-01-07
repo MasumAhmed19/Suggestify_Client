@@ -10,6 +10,9 @@ import AddQueryPage from "../pages/AddQueryPage";
 import MyQueries from "../pages/MyQueries";
 import QueryDetailPage from "../pages/QueryDetailPage";
 import UpdateQuery from "../pages/UpdateQuery";
+import MyRecommendation from "../pages/MyRecommendation";
+import PrivateRoute from "./PrivateRoute";
+import RecommendationForMe from "../pages/RecommendationForMe";
 
 const router = createBrowserRouter([
   {
@@ -30,17 +33,22 @@ const router = createBrowserRouter([
         element: <AboutPage />,
       },{
         path: "/add-query",
-        element: <AddQueryPage />
+        element: <PrivateRoute><AddQueryPage /></PrivateRoute> 
       },{
         path: "/my-queries/:email",
-        element: <MyQueries />
+        element: <PrivateRoute><MyQueries /></PrivateRoute>
       },{
-        // kaj krte hbeeee
-        path:'query/:id',
-        element:<QueryDetailPage></QueryDetailPage>
+        path:'query/:id', // kaj krte hbeeee
+        element:<PrivateRoute><QueryDetailPage /></PrivateRoute>
       },{
         path:'update/:id',
-        element: <UpdateQuery />
+        element: <PrivateRoute><UpdateQuery /></PrivateRoute>
+      },{
+        path:'/my-recommendations/:email',
+        element:<PrivateRoute><MyRecommendation /></PrivateRoute>
+      },{
+        path:'/recommendations-for-me/:email',
+        element:<PrivateRoute><RecommendationForMe/></PrivateRoute>
       }
     ],
   },
