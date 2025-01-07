@@ -13,6 +13,7 @@ const QueryCard = ({ el, fetchQueryData, fetAllQueries }) => {
   const {user} = useAuth();
   const navigate = useNavigate()
 
+
   const {
     _id,
     queryer,
@@ -74,7 +75,7 @@ const QueryCard = ({ el, fetchQueryData, fetAllQueries }) => {
             <h2 className="text-sm text-gray-800">{queryer.name}</h2>
           </div>
         </div>
-        <div className="dropdown dropdown-end cursor-pointer">
+        <div className={`dropdown dropdown-end cursor-pointer`}>
           <div
             tabIndex={0}
             role=""
@@ -86,8 +87,8 @@ const QueryCard = ({ el, fetchQueryData, fetAllQueries }) => {
             tabIndex={0}
             className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow space-y-2"
           >
-            <li>
-              <Link onClick={()=>handleUpdate(_id)}  className={`${parbe? 'hover:text-[#7201FF]': 'text-gray-400 cursor-not-allowed'} flex gap-2 items-center text-md `}>
+            <li >
+              <Link onClick={()=>handleUpdate(_id)} className={`${parbe ? 'hover:text-[#7201FF]': 'text-gray-400 cursor-not-allowed'} flex gap-2 items-center text-md `}>
                 <FaGear /> Update your query
               </Link>
             </li>
@@ -127,7 +128,7 @@ const QueryCard = ({ el, fetchQueryData, fetAllQueries }) => {
         </div>
       </div>
 
-      {/* Footer: Time, Comments, Likes, and Buttons */}
+      {/* date like comment */}
       <div className="flex flex-col md:flex-row gap-3 md:items-center justify-between mt-4">
         <div className="flex md:gap-3 items-center gap-10 text-sm text-gray-500">
           <h2>{addedTime}</h2>

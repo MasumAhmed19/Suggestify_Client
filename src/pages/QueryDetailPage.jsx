@@ -5,6 +5,7 @@ import axios from "axios";
 import { Sidebar } from "../components/Sidebar";
 import { FaComments, FaHandSparkles } from "react-icons/fa";
 import RecommendationForm from "../components/RecommendationForm";
+import RecomCards from "../components/RecomCards";
 
 const QueryDetailPage = () => {
   const { user } = useAuth();
@@ -94,7 +95,10 @@ const QueryDetailPage = () => {
                 </div>
 
                 {/* all recommendations for this post */}
-                <div></div>
+                <div>
+                  <RecomCards id={id} />
+
+                </div>
             </div>
 
           </div>

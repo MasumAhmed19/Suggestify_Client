@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute><MyQueries /></PrivateRoute>
       },{
         path:'query/:id', // kaj krte hbeeee
-        element:<PrivateRoute><QueryDetailPage /></PrivateRoute>
+        element:<QueryDetailPage />
       },{
         path:'update/:id',
         element: <PrivateRoute><UpdateQuery /></PrivateRoute>

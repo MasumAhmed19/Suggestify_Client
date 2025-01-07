@@ -1,6 +1,8 @@
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import { format } from 'date-fns'
+import axios from "axios";
+import toast from "react-hot-toast";
 
 
 const RecommendationForm = ({ query }) => {
@@ -36,23 +38,27 @@ const [date, setDate] = useState(format(new Date(), 'P'))
         name: user?.displayName,
         photo: user?.photoURL,
       },
-      recomID:_id,
+      querierID:_id,
       queryer,
       recommendationTitle,
       recommendationImage,
       recommendationDetail,
       addedRecomTime: date,
+      recomLike:0
     };
 
     console.log(recomData)
 
     // Add API call or database integration here
-
-
-      // TOAST: form filled toast
-
-
-      // navigate to my query page
+    try{
+      const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/add-recommendation`, recomData) 
+      form.reset();
+      console.log(data);
+      toast.success('Successfully added your recommendation')
+      
+    }catch(err){
+      console.log(err)
+    }
 
   };
 
