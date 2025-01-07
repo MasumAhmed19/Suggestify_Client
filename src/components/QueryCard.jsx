@@ -8,6 +8,7 @@ import { HiDotsHorizontal } from "react-icons/hi";
 import useAuth from "../hooks/useAuth";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useEffect, useState } from "react";
 
 const QueryCard = ({ el, fetchQueryData, fetAllQueries }) => {
   const {user} = useAuth();
@@ -25,13 +26,16 @@ const QueryCard = ({ el, fetchQueryData, fetAllQueries }) => {
     addedTime,
   } = el || {};
 
-  let parbe;
-  if(queryer?.email===user?.email){
-    parbe=true;
-  }else{
-    parbe=false;
+  const [parbe, setParbe] = useState(true);
 
-  }
+  useEffect(() => {
+    if (queryer?.email === user?.email) {
+      setParbe(true);
+    } else {
+      setParbe(false);
+    }
+  }, [queryer, user]);
+
 
   const handleDelete = async (id)=>{
     if(parbe){
@@ -61,6 +65,22 @@ const QueryCard = ({ el, fetchQueryData, fetAllQueries }) => {
       navigate(`/update/${id}`)
     }
   }
+
+
+
+  // recommender id die fetch krbo
+  const [recom, setRecom] = useState(0)
+
+  useEffect(()=>{
+    fetRecomData();
+  }, [_id])
+
+  const fetRecomData = async ()=>{
+    const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/all-recommendations/${_id}`) 
+    setRecom(data);
+  }
+
+  console.log(recom)
 
   return (
     <section className="p-4 bg-white rounded-md space-y-3">
@@ -139,7 +159,7 @@ const QueryCard = ({ el, fetchQueryData, fetAllQueries }) => {
             to={`/query/${_id}`}
             className="flex items-center gap-2 text-gray-600 hover:text-gray-800"
           >
-            <FaComments /> 5
+            <FaComments /> {recom.length}
           </Link>
         </div>
 

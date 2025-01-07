@@ -36,6 +36,28 @@ const QueryDetailPage = () => {
     addedTime,
   } = query[0] || {};
 
+
+
+  // recommendations work
+  const queryid = id;
+  const [recom, setRecom] = useState({});
+
+  useEffect(() => {
+    fetchRecomData();
+  }, [queryid]);
+
+  const fetchRecomData = async () => {
+    const { data } = await axios.get(
+      `${import.meta.env.VITE_API_URL}/all-recommendations/${queryid}`
+    );
+    setRecom(data);
+  };
+
+
+
+
+
+
   return (
     <div>
       <div className="max-w-screen-xl mx-auto py-[40px]">
@@ -90,13 +112,14 @@ const QueryDetailPage = () => {
                 {/* form for recommendations */}
                 <div>
                   {
-                    user ? <RecommendationForm query={query}/>  : (<Link to='/login' className="btn1">Write your recommendation</Link>)
+                    user ? <RecommendationForm query={query} fetchRecomData={fetchRecomData}/>   : (<Link to='/login' className="btn1">Write your recommendation</Link>)
                   }
                 </div>
-
+                  <div className="py-2"></div>
+                  <hr />
                 {/* all recommendations for this post */}
                 <div>
-                  <RecomCards id={id} />
+                  <RecomCards fetchRecomData={fetchRecomData} recom={recom} />
 
                 </div>
             </div>

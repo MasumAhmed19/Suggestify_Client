@@ -94,6 +94,7 @@ const RecomCard = ({ el }) => {
           </div>
         </div>
       </div>
+      <hr className="mt-8"/>
     </div>
   );
 };
