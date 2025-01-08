@@ -36,7 +36,7 @@ const Header = () => {
   );
 
   const dropdownMenu = (
-    <div className="dropdownMenu">
+    <div className="dropdownMenu w-screen">
       <span>
         <NavLink
           className="navlink"
@@ -56,6 +56,31 @@ const Header = () => {
       <span>
         <NavLink
           className="navlink"
+          to={`/my-queries/${user?.email}`}
+        >
+          My Queries
+        </NavLink>
+      </span>
+      <span>
+        <NavLink
+          className="navlink"
+          to={`/my-recommendations/${user?.email}`}
+        >
+          My Recommendations
+        </NavLink>
+      </span>
+      <span>
+        <NavLink
+          className="navlink"
+          to={`/recommendations-for-me/${user?.email}`}
+        >
+          Recommendations for me
+        </NavLink>
+      </span>
+      
+      <span>
+        <NavLink
+          className="navlink"
           to="/about"
         >
           about
@@ -68,7 +93,8 @@ const Header = () => {
     <div className="container mx-auto border-b-[1px] border-[#f1f1f1]">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
-          <div className="dropdown">
+          <div className="dropdown z-[1000]">
+            
             <div
               tabIndex={0}
               role="button"

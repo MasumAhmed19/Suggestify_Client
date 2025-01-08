@@ -4,6 +4,7 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import Queries from './Queries';
 import StaticQueries from '../components/StaticQueries';
+import LoadingSkeleton from '../components/LoadingSkeleton';
 
 
 
@@ -17,6 +18,8 @@ const Home = () => {
             {/* category wise querys  */}
             {/* <Queries /> */}
             <StaticQueries />
+
+            {/* <LoadingSkeleton /> */}
 
 
             

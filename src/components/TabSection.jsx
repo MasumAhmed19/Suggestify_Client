@@ -4,6 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import QueryCard from './QueryCard';
+import LoadingSkeleton from './LoadingSkeleton';
 
 
 
@@ -42,19 +43,16 @@ function a11yProps(index) {
 }
 
 // Main Tab Section Component
-const TabSection = ({queries, fetAllQueries}) => {
+const TabSection = ({queries, fetAllQueries, loading, layout}) => {
     const [value, setValue] = useState(0);
     // const { queryer, productName, productBrand, productImg, queryTitle, problemFaced, addedTime } = queries || {}
-    // const [search, setSeacrh] = useState('')
+
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
-    // const handleSearch =(e)=>{
-    //     setSeacrh(e.target.value)
-    //     console.log(search)
-    // }
+
 
     return (
         <Box sx={{ width: '100%' }}>
@@ -72,38 +70,50 @@ const TabSection = ({queries, fetAllQueries}) => {
             </Box>
             {/* Tab Content */}
             <CustomTabPanel value={value} index={0}>
-                <div className='flex flex-col gap-8'>
+                {
+                    loading ? <LoadingSkeleton /> : <div className={`grid ${layout==='optionOne' ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'} gap-8`}>
                     {queries.map(el=>(
                         <QueryCard key={el?._id} el={el} fetAllQueries={fetAllQueries}  />
                     ))}
 
                 </div>
+                }
+                
             </CustomTabPanel>
             {/* Technology */}
             <CustomTabPanel value={value} index={1}>
-                <div className='flex flex-col gap-8'>
+                {
+                    loading ? <LoadingSkeleton /> : <div className={`grid ${layout==='optionOne' ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'} gap-8`}>
                     {queries.filter(el => el?.queryCategory === 'Technology').map(el => (
                         <QueryCard key={el?._id} el={el}  />
                     ))}
                 </div>
+                }
+                
             </CustomTabPanel>
 
             {/* Home Appliance */}
             <CustomTabPanel value={value} index={2}>
-                <div className='flex flex-col gap-8'>
+                {
+                    loading ? <LoadingSkeleton /> : <div className={`grid ${layout==='optionOne' ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'} gap-8`}>
                     {queries.filter(el => el?.queryCategory === 'Home Appliance').map(el => (
                         <QueryCard key={el?._id} el={el}  />
                     ))}
                 </div>
+                }
+                
             </CustomTabPanel>
 
             {/* Personal Care */}
             <CustomTabPanel value={value} index={3}>
-                <div className='flex flex-col gap-8'>
+                {
+                    loading ? <LoadingSkeleton /> : <div className={`grid ${layout==='optionOne' ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'} gap-8`}>
                     {queries.filter(el => el?.queryCategory === 'Personal Care').map(el => (
                         <QueryCard key={el?._id} el={el} />
                     ))}
                 </div>
+                }
+                
             </CustomTabPanel>
         </Box>
     );

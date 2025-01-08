@@ -2,29 +2,41 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import TabSection from "../components/TabSection";
 import { Sidebar } from "../components/Sidebar";
-
+import { GiHamburgerMenu } from "react-icons/gi";
+import { PiTextColumns } from "react-icons/pi";
 
 const Queries = () => {
   const [queries, setQueries] = useState([]);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetAllQueries = async () => {
+      setLoading(true);
       try {
         const { data } = await axios.get(
-          `${import.meta.env.VITE_API_URL}/all-queries?search=${search}&sort=${sort}`
+          `${
+            import.meta.env.VITE_API_URL
+          }/all-queries?search=${search}&sort=${sort}`
         );
-        setQueries(data); 
+        setQueries(data);
       } catch (error) {
         console.error("Error fetching queries:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
-    console.log(sort);
-
     fetAllQueries();
   }, [search, sort]);
+
+  const [layout, setLayout] = useState("optionOne");
+
+  const handleLayout = (event) => {
+    setLayout(event.target.value);
+    console.log(layout)
+  };
 
   return (
     <div className="container mx-auto py-[40px]">
@@ -51,22 +63,56 @@ const Queries = () => {
                 value={sort}
                 onChange={(e) => setSort(e.target.value)}
               >
-                <option
-                  value=""
-                >
-                  Sort By Default
-                </option>
+                <option value="">Sort By Default</option>
                 <option value="asc">Ascending</option>
                 <option value="desc">Descending</option>
               </select>
             </div>
+
+            {/* Layout Radio Buttons */}
+            <div className="join mb-2">
+              <label
+                className={`join-item btn flex items-center gap-2 ${
+                  layout === "optionOne" ? "btn-active1" : ""
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="layout" 
+                  className="sr-only"
+                  value="optionOne" 
+                  checked={layout === "optionOne"} 
+                  onChange={handleLayout} 
+                />
+                <GiHamburgerMenu className="text-xl" />
+              </label>
+
+              {/* Radio Button 2 */}
+              <label
+                className={`join-item btn flex items-center gap-2 ${
+                  layout === "optionTwo" ? "btn-active1" : ""
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="layout" // Same name for mutual exclusivity
+                  className="sr-only"
+                  value="optionTwo" // Use value to identify the option
+                  checked={layout === "optionTwo"} // Checked state based on layout
+                  onChange={handleLayout} // Update the layout state
+                  aria-label="Coffee icon option"
+                />
+                <PiTextColumns className="text-2xl" />
+              </label>
+            </div>
           </div>
 
-          <TabSection queries={queries} />
+          {/* Tab Section */}
+          <TabSection layout={layout} loading={loading} queries={queries} />
         </div>
 
         {/* Sidebar */}
-        <div className="col-span-1 ">
+        <div className="col-span-1">
           <Sidebar />
         </div>
       </div>

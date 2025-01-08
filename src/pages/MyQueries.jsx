@@ -11,6 +11,7 @@ const MyQueries = () => {
   const { user } = useAuth();
   const [query, setQuery] = useState()
   const { email } = useParams();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchQueryData();
@@ -30,7 +31,11 @@ const MyQueries = () => {
             <div className='grid md:grid-cols-4 grid-cols-1'>
 
                 <div className='col-span-1 md:col-span-3'>
-                    <div className='flex flex-col gap-8'>
+                    <div className='flex flex-col'>
+                    <div className="ml-4">
+                      <h2 className="text-lg font-semibold mb-2">My Queries</h2>
+                      <hr className="mb-2"/>
+                    </div>
                         {query && query.map(el=>(
                             <QueryCard key={el?._id} el={el} fetchQueryData={fetchQueryData} />
                         ))}
