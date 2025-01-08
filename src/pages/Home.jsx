@@ -2,6 +2,7 @@ import Carousel from '../components/Carousel';
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import Queries from './Queries';
 
 
 
@@ -27,6 +28,7 @@ const Home = () => {
             </>
 
             {/* category wise querys  */}
+            <Queries />
             
 
         </div>

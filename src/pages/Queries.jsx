@@ -16,7 +16,7 @@ const Queries = () => {
     }
 
     return (
-        <div className='max-w-screen-xl mx-auto py-[40px]'>
+        <div className='container mx-auto py-[40px]'>
 
             <div className='grid md:grid-cols-4 grid-cols-1'>
 
