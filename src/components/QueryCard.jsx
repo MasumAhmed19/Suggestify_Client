@@ -164,7 +164,7 @@ const QueryCard = ({ el, fetchQueryData, fetAllQueries, search }) => {
 
         <div className="flex  gap-3 items-center">
           <Link
-            to='/'
+            to={`/query/${_id}/#recom`}
             className="flex items-center gap-2 text-sm text-[#7201FF] tooltip"
             data-tip="Add Recommendation"
           >

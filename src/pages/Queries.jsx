@@ -2,45 +2,66 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import TabSection from "../components/TabSection";
 import { Sidebar } from "../components/Sidebar";
-import { TextField } from "@mui/material";
-import Box from "@mui/material/Box";
+
 
 const Queries = () => {
   const [queries, setQueries] = useState([]);
-  const [search, setSearch] = useState(""); 
+  const [search, setSearch] = useState("");
+  const [sort, setSort] = useState("");
 
-
-
-  // Fetch queries from the server whenever search changes
   useEffect(() => {
     const fetAllQueries = async () => {
       try {
         const { data } = await axios.get(
-          `${import.meta.env.VITE_API_URL}/all-queries?search=${search}`
+          `${import.meta.env.VITE_API_URL}/all-queries?search=${search}&sort=${sort}`
         );
-        setQueries(data); // Update query list
+        setQueries(data); 
       } catch (error) {
-        console.error("Error fetching queries:", error); // Log errors
+        console.error("Error fetching queries:", error);
       }
     };
 
-    fetAllQueries(); 
-  }, [search]); 
+    console.log(sort);
+
+    fetAllQueries();
+  }, [search, sort]);
 
   return (
     <div className="container mx-auto py-[40px]">
       <div className="grid md:grid-cols-4 grid-cols-1">
         {/* Tab */}
         <div className="col-span-1 md:col-span-3">
-          <Box sx={{ mb: 2 }}>
-            <TextField
-              fullWidth
-              variant="outlined"
-              placeholder="Search queries..."
-              value={search}
-              onChange={(e)=>setSearch(e.target.value)} // Handle input changes
-            />
-          </Box>
+          {/* search and sort */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-5">
+            {/* Search input */}
+            <div className="w-full md:w-5/6 mb-2">
+              <input
+                type="text"
+                className="input input-bordered w-full"
+                placeholder="Search queries..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
+
+            {/* Sort order dropdown */}
+            <div className="w-full md:w-1/6 mb-2">
+              <select
+                className="select select-bordered w-full"
+                value={sort}
+                onChange={(e) => setSort(e.target.value)}
+              >
+                <option
+                  value=""
+                >
+                  Sort By Default
+                </option>
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+              </select>
+            </div>
+          </div>
+
           <TabSection queries={queries} />
         </div>
 

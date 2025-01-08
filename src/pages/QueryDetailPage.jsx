@@ -104,7 +104,7 @@ const QueryDetailPage = () => {
             </div>
             <hr />
 
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-5" id="recom"> 
                 <div>
                   <h2 className="text-lg font-semibold">Do you have any solutions?</h2>
                   <p className="">Please recommend something that can solve the addressed issue by filling up the form.</p>
