@@ -5,9 +5,8 @@ import { HiDotsHorizontal } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
-const RecomCard = ({ el }) => {
+const RecomCard = ({ el, handleRecomDelete }) => {
 
-    console.log(el)
     const { user } = useAuth();
     
     let parbe = true;
@@ -52,7 +51,7 @@ const RecomCard = ({ el }) => {
             >
               <li>
                 <Link
-                  onClick={() => handleDelete(el?._id)}
+                  onClick={() => handleRecomDelete(el?._id)}
                   className={`${
                     parbe
                       ? "hover:text-[#7201FF]"

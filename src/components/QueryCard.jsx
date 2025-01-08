@@ -158,7 +158,7 @@ const QueryCard = ({ el, fetchQueryData, fetAllQueries, search }) => {
             to={`/query/${_id}`}
             className="flex items-center gap-2 text-gray-600 hover:text-gray-800"
           >
-            <FaComments /> {recom.length}
+            <FaComments /> {recom.length} recommendations
           </Link>
         </div>
 

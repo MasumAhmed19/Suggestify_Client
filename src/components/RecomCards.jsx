@@ -1,11 +1,8 @@
 import RecomCard from "./RecomCard";
 
 
-const RecomCards = ({ fetchRecomData, recom }) => {
+const RecomCards = ({ fetchRecomData, recom, handleRecomDelete }) => {
 
-  const handleDelete = (id) => {
-    console.log(recom);
-  };
 
 
   return (
@@ -13,7 +10,7 @@ const RecomCards = ({ fetchRecomData, recom }) => {
          <h2 className="text-lg font-semibold">Recommendations: {recom.length}</h2>
       {recom.length >0 ? (    
 
-        recom.map(el => <RecomCard key={el._id} el={el} fetchRecomData={fetchRecomData} />)
+        recom.map(el => <RecomCard key={el._id} el={el} fetchRecomData={fetchRecomData} handleRecomDelete={handleRecomDelete} />)
 
       ) : (
         <h2>Submit your recommendation by filling the form</h2>

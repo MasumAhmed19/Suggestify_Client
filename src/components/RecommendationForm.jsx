@@ -21,7 +21,6 @@ const [date, setDate] = useState(format(new Date(), 'P'))
     addedTime,
   } = query[0] || {};
 
-  console.log(query[0]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

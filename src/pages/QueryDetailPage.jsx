@@ -6,6 +6,7 @@ import { Sidebar } from "../components/Sidebar";
 import { FaComments, FaHandSparkles } from "react-icons/fa";
 import RecommendationForm from "../components/RecommendationForm";
 import RecomCards from "../components/RecomCards";
+import toast from "react-hot-toast";
 
 const QueryDetailPage = () => {
   const { user } = useAuth();
@@ -53,6 +54,36 @@ const QueryDetailPage = () => {
     setRecom(data);
   };
 
+  const handleRecomDelete = async (id)=>{
+    console.log(id)
+    // check ei id er recom er user  r user.email same ki na recommer.email===user.email
+    const {data} = await axios.get(
+      `${import.meta.env.VITE_API_URL}/recom/${id}`
+    );
+
+    if(data[0].recommer.email === user.email){
+      // taile delete krte parbe
+      try{
+        const {data} = await axios.delete(
+          `${import.meta.env.VITE_API_URL}/rec-delete/${id}`
+        );
+        console.log(data)
+        toast.success('Successfully removed you recommendation')
+        fetchRecomData();
+
+      }catch (err){
+        console.log(err)
+      }
+
+    }else{
+      toast.error('You are not allowed to delete other recommendations')
+    }
+
+
+
+    // call api
+  }
+
 
 
 
@@ -79,12 +110,12 @@ const QueryDetailPage = () => {
             
             <hr />
             <div className="flex md:gap-3 items-center gap-10  text-gray-500 text-base">
-                    <button className="flex items-center gap-2 text-gray-600 hover:text-gray-800">
+                    <button className="cursor-default  flex items-center gap-2 text-gray-600 hover:text-gray-800">
                         <FaHandSparkles /> 1.1k
                     </button>
-                    <button className="flex items-center gap-2 text-gray-600 hover:text-gray-800">
-                        <FaComments /> 5
-                    </button>
+                    <Link className="cursor-default flex items-center gap-2 text-gray-600 hover:text-gray-800">
+                        <FaComments /> {recom.length} recommendations
+                    </Link>
             </div>
             <hr />
 
@@ -119,7 +150,7 @@ const QueryDetailPage = () => {
                   <hr />
                 {/* all recommendations for this post */}
                 <div>
-                  <RecomCards fetchRecomData={fetchRecomData} recom={recom} />
+                  <RecomCards handleRecomDelete={handleRecomDelete} fetchRecomData={fetchRecomData} recom={recom} />
 
                 </div>
             </div>
