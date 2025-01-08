@@ -10,7 +10,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 
-const QueryCard = ({ el, fetchQueryData, fetAllQueries }) => {
+const QueryCard = ({ el, fetchQueryData, fetAllQueries, search }) => {
   const {user} = useAuth();
   const navigate = useNavigate()
 
@@ -80,7 +80,6 @@ const QueryCard = ({ el, fetchQueryData, fetAllQueries }) => {
     setRecom(data);
   }
 
-  console.log(recom)
 
   return (
     <section className="p-4 bg-white rounded-md space-y-3">

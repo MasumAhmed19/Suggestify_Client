@@ -36,11 +36,8 @@ function StaticQueries() {
         <div className="space-y-4 text-center ">
             <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">Explore Categories of Interest</h1>
             <p>Discover the latest innovations, cutting-edge gadgets, smartphones, and emerging tech trends. Enhance your living space with smart home devices, modern kitchen tools, and efficient household solutions.</p>
-            <div>
-                <Link to='/queries' className="btn1">View ALl</Link>
-            </div>
         </div>
-        <div className="py-8"></div>
+        <div className="py-5"></div>
         <div className="grid md:grid-cols-3 gap-6">
           {categories.map((category) => (
             <div key={category.title} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
@@ -65,6 +62,9 @@ function StaticQueries() {
               </div>
             </div>
           ))}
+        </div>
+        <div className="flex items-center justify-center pt-8">
+            <Link to='/queries' className="btn1">View ALl</Link>
         </div>
       </div>
     </div>
