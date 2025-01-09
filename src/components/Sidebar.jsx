@@ -24,7 +24,7 @@ const suggestedUsers = [
 export const Sidebar = () => (
   <aside className="w-80 pl-8">
     <div className="sticky top-4">
-      <h2 className="font-semibold mb-4">Recommended topics</h2>
+      <h2 className="font-semibold mt-5 mb-4">Recommended topics</h2>
       <div className="flex flex-wrap gap-2 mb-8">
         {topics.map((topic) => (
           <button

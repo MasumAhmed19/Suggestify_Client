@@ -35,7 +35,6 @@ const Queries = () => {
 
   const handleLayout = (event) => {
     setLayout(event.target.value);
-    console.log(layout)
   };
 
   return (
@@ -44,9 +43,9 @@ const Queries = () => {
         {/* Tab */}
         <div className="col-span-1 md:col-span-3">
           {/* search and sort */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-5">
+          <div className="flex flex-col px-5 md:flex-row items-center justify-between gap-5">
             {/* Search input */}
-            <div className="w-full md:w-5/6 mb-2">
+            <div className="w-full md:w-2/3 lg:w-5/6 mb-2">
               <input
                 type="text"
                 className="input input-bordered w-full"
@@ -57,7 +56,7 @@ const Queries = () => {
             </div>
 
             {/* Sort order dropdown */}
-            <div className="w-full md:w-1/6 mb-2">
+            <div className="w-full md:w-1/3 lg:w-1/6 mb-2">
               <select
                 className="select select-bordered w-full"
                 value={sort}

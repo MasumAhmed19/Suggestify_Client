@@ -34,7 +34,7 @@ const Login = () => {
             console.log(err);
         })
 
-    console.log(email, password);
+    // console.log(email, password);
   };
 
   return (

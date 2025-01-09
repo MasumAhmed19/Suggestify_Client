@@ -46,14 +46,14 @@ const [date, setDate] = useState(format(new Date(), 'P'))
       recomLike:0
     };
 
-    console.log(recomData)
+    // console.log(recomData)
 
     // Add API call or database integration here
     try{
       const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/add-recommendation`, recomData)
       fetchRecomData();
       form.reset();
-      console.log(data);
+      // console.log(data);
       toast.success('Successfully added your recommendation')
       
     }catch(err){

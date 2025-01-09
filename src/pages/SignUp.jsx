@@ -32,7 +32,7 @@ const SignUP = () => {
             // const curUser = res.user;
             updateUserProfile({displayName:name, photoURL:profileURL})
             .then(()=>{
-                console.log("user profile updated")
+                // console.log("user profile updated")
                 navigate('/');
             }).catch(err=>{
                 console.log(err);
@@ -42,7 +42,7 @@ const SignUP = () => {
             console.log(err)
         })
 
-    console.log(email, password);
+    // console.log(email, password);
   };
 
   return (

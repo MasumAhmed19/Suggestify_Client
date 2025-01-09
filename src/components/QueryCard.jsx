@@ -10,7 +10,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 
-const QueryCard = ({ el, fetchQueryData, fetAllQueries, search }) => {
+const QueryCard = ({ el, fetchQueryData, search }) => {
   const {user} = useAuth();
   const navigate = useNavigate()
 
@@ -44,7 +44,6 @@ const QueryCard = ({ el, fetchQueryData, fetAllQueries, search }) => {
         if(res.status === 200){
           toast.success('Data Successfully Deleted')
           fetchQueryData();
-          fetAllQueries();
         }else{
           toast.error('Failed to Delete')
         }

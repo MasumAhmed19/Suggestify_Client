@@ -24,7 +24,6 @@ const QueryDetailPage = () => {
     setQuery(data);
   };
 
-  console.log(query);
   const {
     _id,
     queryer,
@@ -55,7 +54,7 @@ const QueryDetailPage = () => {
   };
 
   const handleRecomDelete = async (id)=>{
-    console.log(id)
+    // console.log(id)
     // check ei id er recom er user  r user.email same ki na recommer.email===user.email
     const {data} = await axios.get(
       `${import.meta.env.VITE_API_URL}/recom/${id}`
@@ -94,7 +93,7 @@ const QueryDetailPage = () => {
       <div className="max-w-screen-xl mx-auto py-[40px]">
         <div className="grid md:grid-cols-4 grid-cols-1">
           {/* Tab */}
-          <div className="col-span-1 md:col-span-3 space-y-5">
+          <div className="col-span-1 md:col-span-3 space-y-5 p-6">
             <h2 className="text-3xl font-semibold">{queryTitle}</h2>
            
             <div className="flex gap-3 items-center">

@@ -45,7 +45,7 @@ const AddQueryPage = () => {
     try{
         await axios.post(`${import.meta.env.VITE_API_URL}/add-query`, queryData)
         form.reset()
-        console.log("data posted")
+        // console.log("data posted")
 
         // TOAST: form filled toast
         toast.success('Query Added Successfully!!!')

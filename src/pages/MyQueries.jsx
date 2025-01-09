@@ -30,7 +30,7 @@ const MyQueries = () => {
             
             <div className='grid md:grid-cols-4 grid-cols-1'>
 
-                <div className='col-span-1 md:col-span-3'>
+                <div className='col-span-1 md:col-span-3 p-2'>
                     <div className='flex flex-col'>
                     <div className="ml-4">
                       <h2 className="text-lg font-semibold mb-2">My Queries</h2>

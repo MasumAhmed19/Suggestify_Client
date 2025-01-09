@@ -42,7 +42,7 @@
 }
 
 .btn-active1{
-  @apply  bg-[#7201FF] text-[#ffffff]
+  @apply  bg-[#7201FF] text-[#ffffff] hover:bg-[#7201FF]
 
 }
 
