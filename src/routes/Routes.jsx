@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         path: "/add-query",
         element: <PrivateRoute><AddQueryPage /></PrivateRoute> 
       },{
-        path: "/my-queries/:email",
+        path: "/my-queries",
         element: <PrivateRoute><MyQueries /></PrivateRoute>
       },{
         path:'query/:id', // kaj krte hbeeee
@@ -44,10 +44,10 @@ const router = createBrowserRouter([
         path:'update/:id',
         element: <PrivateRoute><UpdateQuery /></PrivateRoute>
       },{
-        path:'/my-recommendations/:email',
+        path:'/my-recommendations',
         element:<PrivateRoute><MyRecommendation /></PrivateRoute>
       },{
-        path:'/recommendations-for-me/:email',
+        path:'/recommendations-for-me',
         element:<PrivateRoute><RecommendationForMe/></PrivateRoute>
       }
     ],

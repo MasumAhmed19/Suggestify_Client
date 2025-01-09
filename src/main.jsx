@@ -3,15 +3,18 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import AuthProvider from './providers/AuthProvider'
 import { RouterProvider } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import router from './routes/Routes'
 import { Toaster } from 'react-hot-toast'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router}></RouterProvider>
-      <Toaster position='left-bottom' reverseOrder={false} />
-    </AuthProvider>
+    <HelmetProvider>
+      <AuthProvider>
+        <RouterProvider router={router}></RouterProvider>
+        <Toaster position='left-bottom' reverseOrder={false} />
+      </AuthProvider>
+    </HelmetProvider>
   </StrictMode>,
 )

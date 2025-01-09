@@ -1,26 +1,23 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import axios from 'axios'
 import { Sidebar } from "../components/Sidebar";
 import QueryCard from '../components/QueryCard';
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 
 
 const MyQueries = () => {
   const { user } = useAuth();
+  const axiosSecure = useAxiosSecure()
   const [query, setQuery] = useState()
-  const { email } = useParams();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchQueryData();
-  }, [email]);
+  }, [user?.email]);
 
   const fetchQueryData = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/queries/${email}`
-    );
+    const { data } = await axiosSecure.get(`/queries/${user?.email}`)
     setQuery(data);
   };
 

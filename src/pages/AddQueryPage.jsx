@@ -1,9 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import axios from 'axios'
 import { useState } from "react";
 import { format } from 'date-fns'
 import { toast } from 'react-hot-toast'
+import { axiosSecure } from "../hooks/useAxiosSecure";
 
 
 const AddQueryPage = () => {
@@ -43,7 +43,7 @@ const AddQueryPage = () => {
 
     // Add API call or database integration here
     try{
-        await axios.post(`${import.meta.env.VITE_API_URL}/add-query`, queryData)
+        await axiosSecure.post(`/add-query`, queryData)
         form.reset()
         // console.log("data posted")
 
@@ -52,7 +52,7 @@ const AddQueryPage = () => {
 
 
         // navigate to my query page
-        navigate(`/my-queries/${user?.email}`)
+        navigate(`/my-queries`)
 
     }catch (err){
         console.log(err)

@@ -1,21 +1,24 @@
 import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa6";
 import useAuth from "../hooks/useAuth";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 const Login = () => {
   const { user, setUser, signInWithGoogle, signIn } = useAuth();
   const navigate = useNavigate()
 
-  const handleGoogleLogin = () => {
-    signInWithGoogle()
-    .then((res)=>{
-        navigate('/');
-        setUser(res.user);
-        // TOAST: successfull login 
-    }).catch((err)=>{
-        // TOAST: Login failed 
-        console.log(err);
-    })
+  const handleGoogleLogin = async () => {
+    try {
+      const res = await signInWithGoogle();
+      navigate('/');
+      setUser(res.user);
+      toast.success('Signing Successful');
+
+    }catch (err){
+      toast.error('Login Failed');
+      console.log(err)
+    }
   };
 
   const handleSubmit = (e) => {

@@ -10,7 +10,7 @@ const RecommendationForMe = () => {
   const [recom, setRecom] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const fetchRecomData = async () => {
+  const fetchRecomData = async () => { 
     try{
       setLoading(true);
       const { data } = await axios.get(

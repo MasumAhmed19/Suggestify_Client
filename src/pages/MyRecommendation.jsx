@@ -4,8 +4,11 @@ import axios from "axios";
 import { Sidebar } from "../components/Sidebar";
 import RecomCard from "../components/RecomCard";
 import LoadingSkeleton from "../components/LoadingSkeleton";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MyRecommendation = () => {
+  const axiosSecure = useAxiosSecure()
+
   const { user } = useAuth();
   const [recom, setRecom] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -13,8 +16,8 @@ const MyRecommendation = () => {
   const fetchRecomData = async () => {
     setLoading(true); // Start loading
     try {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/my-recoms/${user.email}`
+      const { data } = await axiosSecure.get(
+        `/my-recoms/${user.email}`
       );
       setRecom(data); 
     } catch (error) {

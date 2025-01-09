@@ -56,7 +56,7 @@ const Header = () => {
       <span>
         <NavLink
           className="navlink"
-          to={`/my-queries/${user?.email}`}
+          to={`/my-queries`}
         >
           My Queries
         </NavLink>
@@ -64,7 +64,7 @@ const Header = () => {
       <span>
         <NavLink
           className="navlink"
-          to={`/my-recommendations/${user?.email}`}
+          to={`/my-recommendations`}
         >
           My Recommendations
         </NavLink>
@@ -72,7 +72,7 @@ const Header = () => {
       <span>
         <NavLink
           className="navlink"
-          to={`/recommendations-for-me/${user?.email}`}
+          to={`/recommendations-for-me`}
         >
           Recommendations for me
         </NavLink>
@@ -157,9 +157,9 @@ const Header = () => {
                   tabIndex={0}
                   className="dropdown-content text-base menu bg-base-100 rounded-box z-[100] w-52 p-2 shadow"
                 >
-                  <li><Link to={`/my-queries/${user?.email}`}>My Queries</Link></li>
-                  <li><Link to={`/my-recommendations/${user?.email}`}>My Recommendations</Link></li>
-                  <li><Link to={`/recommendations-for-me/${user?.email}`}>Recommendations for me</Link></li>
+                  <li><Link to={`/my-queries`}>My Queries</Link></li>
+                  <li><Link to={`/my-recommendations`}>My Recommendations</Link></li>
+                  <li><Link to={`/recommendations-for-me`}>Recommendations for me</Link></li>
                   <li onClick={logOut}>
                     <Link className="hover:bg-transparent">
                       <button className="btn1">Logout</button>

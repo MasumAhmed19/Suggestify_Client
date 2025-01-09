@@ -65,7 +65,7 @@ const UpdateQuery = () => {
     try {
       await axios.put(`${import.meta.env.VITE_API_URL}/update-query/${id}`, queryData);
       toast.success('Query Updated Successfully!!!');
-      navigate(`/my-queries/${user?.email}`);
+      navigate(`/my-queries`);
     } catch (err) {
       console.log(err);
     }
