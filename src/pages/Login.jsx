@@ -45,11 +45,13 @@ const Login = () => {
       {/* Header */}
       <div className="flex w-full justify-between items-center p-5">
         <div>
-          <img
-            src="https://i.ibb.co.com/WKWSCHN/logo.png"
-            alt="Logo"
-            className="w-28"
-          />
+          <Link to='/'>
+            <img
+              src="https://i.ibb.co.com/WKWSCHN/logo.png"
+              alt="Logo"
+              className="w-28"
+            />
+          </Link>
         </div>
         <div>
           <Link className="btn1" to="/">

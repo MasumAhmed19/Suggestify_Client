@@ -53,7 +53,7 @@ const RecommendationForMe = () => {
           ) : (
             <div className="flex flex-col gap-3">
               <h2 className="text-xl font-semibold">
-                You don't recommend anything to any query
+                No one recommended anything to to your any  query!
               </h2>
               <img
                 className="w-full md:w-1/2"
