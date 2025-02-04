@@ -78,15 +78,7 @@ const QueryDetailPage = () => {
       toast.error('You are not allowed to delete other recommendations')
     }
 
-
-
-    // call api
   }
-
-
-
-
-
 
   return (
     <div>

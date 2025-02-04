@@ -62,7 +62,7 @@ const Queries = () => {
                 value={sort}
                 onChange={(e) => setSort(e.target.value)}
               >
-                <option value="">Sort By Default</option>
+                <option value="">Sort By Date</option>
                 <option value="asc">Ascending</option>
                 <option value="desc">Descending</option>
               </select>
