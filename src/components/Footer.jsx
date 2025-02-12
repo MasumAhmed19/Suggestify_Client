@@ -6,7 +6,7 @@ const Footer = () => {
       <div className=" container mx-auto">
         <section className="container mx-auto g6 text-white py-16 rounded-md">
           <div className="flex flex-col gap-5 items-center">
-            <h2 className="text-center text-2xl font-semibold">
+            <h2 className="text-center heading1">
               Subscribe to our Newsletter
             </h2>
             <p className="text-center text-sm text-base-100">

@@ -81,6 +81,10 @@
   /* background: linear-gradient(to right, #0645A0, #00CBF9, #0645A0); */
 }
 
+.heading1{
+  @apply text-2xl lg:text-3xl font-semibold
+}
+
 
 
 
