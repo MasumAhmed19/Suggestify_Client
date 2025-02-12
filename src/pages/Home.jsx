@@ -5,6 +5,7 @@ import { FaLinkedin } from "react-icons/fa";
 import Queries from './Queries';
 import StaticQueries from '../components/StaticQueries';
 import LoadingSkeleton from '../components/LoadingSkeleton';
+import Herov2 from './HomePage/Herov2';
 
 
 
@@ -13,7 +14,8 @@ const Home = () => {
     return (
         <div>
             {/* Hero slider */}
-            <Carousel />
+            {/* <Carousel /> */}
+            <Herov2 />
 
             {/* category wise querys  */}
             {/* <Queries /> */}
