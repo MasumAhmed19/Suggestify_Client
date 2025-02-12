@@ -6,6 +6,7 @@ import Queries from './Queries';
 import StaticQueries from '../components/StaticQueries';
 import LoadingSkeleton from '../components/LoadingSkeleton';
 import Herov2 from './HomePage/Herov2';
+import TrustedPartners from './sections/TrustedPartners';
 
 
 
@@ -16,6 +17,8 @@ const Home = () => {
             {/* Hero slider */}
             {/* <Carousel /> */}
             <Herov2 />
+            {/*  */}
+            <TrustedPartners />
 
             {/* category wise querys  */}
             {/* <Queries /> */}
