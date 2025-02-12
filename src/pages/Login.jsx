@@ -2,10 +2,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa6";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
+import { TbFidgetSpinner } from 'react-icons/tb'
 import axios from "axios";
 
 const Login = () => {
-  const { user, setUser, signInWithGoogle, signIn } = useAuth();
+  const { user, setUser, signInWithGoogle, signIn, loading } = useAuth();
   const navigate = useNavigate()
 
   const handleGoogleLogin = async () => {
@@ -31,9 +32,9 @@ const Login = () => {
         .then((res)=>{
             navigate('/');
             setUser(res.user);
-            // TOAST: successfull login 
+            toast.success('Signing Successful');
         }).catch((err)=>{
-            // TOAST: Login failed 
+            toast.warn('Login Failed');
             console.log(err);
         })
 
@@ -103,12 +104,18 @@ const Login = () => {
             />
           </div>
 
-          <button
-            type="submit"
-            className="btn1 w-full py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition-all"
-          >
-            Log in
-          </button>
+          <div>
+            <button
+              type='submit'
+              className='btn1 w-full py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition-all'
+            >
+              {loading ? (
+                <TbFidgetSpinner className='animate-spin m-auto' />
+              ) : (
+                'Continue'
+              )}
+            </button>
+          </div>
         </form>
 
         {/* Forgot Password */}

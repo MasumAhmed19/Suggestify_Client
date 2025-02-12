@@ -76,6 +76,11 @@
   background: linear-gradient(transparent, #ECE5FE);
 }
 
+.g6 {
+  background: linear-gradient(to right, #06024d, #0645A0, #187cff);
+  /* background: linear-gradient(to right, #0645A0, #00CBF9, #0645A0); */
+}
+
 
 
 

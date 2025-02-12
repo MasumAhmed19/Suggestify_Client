@@ -35,8 +35,7 @@ export const Sidebar = () => (
           </button>
         ))}
       </div>
-      <div className="border-t border-gray-200 pt-8">
-        <h2 className="font-semibold mb-4">Who to follow</h2>
+      <div className="border-gray-200 pt-8">
         <section className="mt-8 border-t border-gray-200 pt-8">
           <h2 className="font-semibold mb-4">Who to follow</h2>
           {suggestedUsers.map((user) => (

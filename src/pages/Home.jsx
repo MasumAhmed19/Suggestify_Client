@@ -20,24 +20,7 @@ const Home = () => {
             <StaticQueries />
 
             {/* <LoadingSkeleton /> */}
-
-
-            
-            {/* Follow us on social */}
-            <>
-                <section className='container mx-auto bg-[#F2F2F2] py-16'>
-                    <div className='flex flex-col gap-5 items-center'>
-                        <h2 className='text-center text-xl'>Follow us on</h2>
-                        <div className='flex gap-4 text-2xl'>
-                            <FaFacebook />
-                            <FaInstagramSquare />
-                            <FaLinkedin />
-                        </div>
-                    </div>
-                </section>
-            </>
-
-            
+       
 
         </div>
     );
