@@ -1,11 +1,12 @@
 import { FaBullseye, FaHeart, FaGlobe, FaUsers } from 'react-icons/fa';
 import Herov2 from './HomePage/Herov2';
 import Herov3 from './AboutPage/Herov3';
+import OurTeam from './AboutPage/OurTeam';
 
 const ValueCard = ({ icon: Icon, title, description }) => (
   <div className="text-center">
-    <div className="w-16 h-16 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">
-      <Icon className="w-8 h-8 text-gray-700" />
+    <div className="w-16 h-16 mx-auto mb-6 bg-[#7201FF] rounded-full flex items-center justify-center">
+      <Icon className="w-8 h-8 text-white " />
     </div>
     <h3 className="text-xl font-semibold mb-3">{title}</h3>
     <p className="text-gray-600">{description}</p>
@@ -27,22 +28,23 @@ const AboutPage = () => {
     <div className="min-h-screen bg-white">
       <Herov3 />
 
+      {/* <OurTeam /> */}
 
 
       {/* Values Section */}
-      <div className="py-20 px-4">
+      <div className="py-20 px-4 g1">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-16">Our Core Values</h2>
+          <h2 className="heading1 text-center mb-16">Our Core Values</h2>
           <div className="grid md:grid-cols-3 gap-12">
             <ValueCard 
               icon={FaBullseye} 
-              title="Excellence" 
-              description="We strive for excellence in everything we do, setting high standards and consistently delivering quality." 
+              title="Our Mission" 
+              description="Our mission is to empower you to make informed purchasing decisions with confidence. We strive to save you time, effort, and money by doing the research for you." 
             />
             <ValueCard 
               icon={FaHeart} 
-              title="Passion" 
-              description="Our passion drives innovation and fuels our commitment to creating impactful solutions." 
+              title="Our Vision" 
+              description="To become your go-to platform for all your product recommendation needs, helping you find the perfect products for your lifestyle." 
             />
             <ValueCard 
               icon={FaGlobe} 
@@ -54,9 +56,9 @@ const AboutPage = () => {
       </div>
 
       {/* Team Section */}
-      <div className="bg-gray-50 py-20 px-4">
+      <div className=" py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-16">Our Leadership Team</h2>
+          <h2 className="heading1 text-center mb-16">Our Leadership Team</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[{
               name: "Sarah Johnson",

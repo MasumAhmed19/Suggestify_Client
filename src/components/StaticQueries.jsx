@@ -81,7 +81,7 @@ const StaticQueries = () => {
         <div className="relative p-6 md:p-16">
           <div className="py-12 space-y-5 flex flex-col items-center">
               <h2 className="heading1 text-gray-800 text-center ">
-              Our Suggestify Products Categorie
+               Suggestify Categories
                 </h2>
                 <p className="text-base text-gray-500 text-center md:w-2/3 mx-auto">Explore a wide selection of carefully curated product categories tailored to meet your needs. Whether you're looking for the latest tech gadgets, home appliances, or personal care products</p>
                 <div>
