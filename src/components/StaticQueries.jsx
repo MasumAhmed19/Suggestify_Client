@@ -104,7 +104,7 @@ const StaticQueries = () => {
                   <button
                     key={category.id}
                     type="button"
-                    className={`text-start hover:bg-gray-200 focus:outline-none focus:bg-gray-200 p-4 md:p-5 rounded-xl ${activeTab === category.id ? 'bg-white shadow-md' : ''}`}
+                    className={`text-start hover:bg-[#EEE8FE] focus:outline-none focus:bg-gray-200 p-4 md:p-5 rounded-xl ${activeTab === category.id ? 'bg-white shadow-md' : ''}`}
                     onClick={() => setActiveTab(category.id)}
                     aria-selected={activeTab === category.id}
                     role="tab"
@@ -119,7 +119,7 @@ const StaticQueries = () => {
                       <span className="grow">
                         <span className="block mt-1 text-base text-gray-800">{category.description}</span>
                         <div>
-                          <span className="block mt-1 text-gray-800 bg-[#EEE8FE] rounded-sm text-xs px-1 w-fit">Total Query: {category.count}</span>
+                          <span className="block mt-1 bg-[#EEE8FE] text-[#7201FF] rounded-sm text-xs px-1 w-fit">Total Query: {category.count}</span>
                         </div>
                       </span>
                     </span>

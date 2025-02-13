@@ -7,6 +7,7 @@ import StaticQueries from '../components/StaticQueries';
 import LoadingSkeleton from '../components/LoadingSkeleton';
 import Herov2 from './HomePage/Herov2';
 import TrustedPartners from './sections/TrustedPartners';
+import Testimonials from './sections/Testimonials';
 
 
 
@@ -25,6 +26,8 @@ const Home = () => {
             <StaticQueries />
 
             {/* <LoadingSkeleton /> */}
+            {/* Testimonials */}
+            {/* <Testimonials /> */}
        
 
         </div>

@@ -1,4 +1,6 @@
 import { FaBullseye, FaHeart, FaGlobe, FaUsers } from 'react-icons/fa';
+import Herov2 from './HomePage/Herov2';
+import Herov3 from './AboutPage/Herov3';
 
 const ValueCard = ({ icon: Icon, title, description }) => (
   <div className="text-center">
@@ -23,23 +25,9 @@ const TeamMemberCard = ({ image, name, role }) => (
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <div 
-        className="h-[700px] container mx-auto bg-cover bg-center relative"
-        style={{
-          backgroundImage: 'url("https://i.ibb.co.com/1qvx2f3/bgimg3.jpg")'
-        }}
-      >
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-4">
-            <h1 className="text-5xl font-bold mb-4">We Are Innovators</h1>
-            <p className="text-xl max-w-2xl mx-auto">
-              Dedicated to creating meaningful solutions that transform businesses and enrich lives.
-            </p>
-          </div>
-        </div>
-      </div>
+      <Herov3 />
+
+
 
       {/* Values Section */}
       <div className="py-20 px-4">
