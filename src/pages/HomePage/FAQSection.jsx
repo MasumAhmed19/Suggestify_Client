@@ -22,10 +22,10 @@ const FAQSections = () => {
   ];
 
   return (
-    <div className="g4 py-[110px] -mt-[5px] relative">
+    <div className="g4 py-[110px] -mt-[5px] relative p-5">
       <div className="container mx-auto flex flex-col gap-10">
         <div className="text-center font-semibold">
-            <h3 className="heading1">Frequently Asked Questions</h3>
+            <h3 className="heading1">Frequently <span className="text-[#7201FF]">Asked Questions</span></h3>
         </div>
         <div className="md:w-3/4 mx-auto flex flex-col gap-5 m-5">
           {temp.map((item, index) => (
@@ -37,7 +37,7 @@ const FAQSections = () => {
                 type="checkbox"
                 className="peer"
               />
-              <div className="collapse-title bg-[#EEE8FE] text-black peer-checked:bg-[#7201FF] peer-checked:text-white font-semibold text-xl">
+              <div className="collapse-title  bg-[#EEE8FE] text-black peer-checked:bg-[#7201FF] peer-checked:text-white font-semibold text-md md:text-xl">
                 {item.ques}
               </div>
               <div className="collapse-content bg-[#EEE8FE] text-black peer-checked:bg-[#7201FF] peer-checked:text-white">

@@ -85,7 +85,7 @@
 }
 
 .heading1{
-  @apply text-2xl lg:text-5xl font-semibold
+  @apply text-2xl lg:text-4xl font-semibold
 }
 
 

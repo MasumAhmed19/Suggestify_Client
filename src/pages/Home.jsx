@@ -9,6 +9,7 @@ import Herov2 from './HomePage/Herov2';
 import TrustedPartners from './sections/TrustedPartners';
 import Testimonials from './sections/Testimonials';
 import FAQSection from './HomePage/FAQSection';
+import CatCard from './HomePage/CatCard';
 
 
 
@@ -24,7 +25,8 @@ const Home = () => {
 
             {/* category wise querys  */}
             {/* <Queries /> */}
-            <StaticQueries />
+            {/* <StaticQueries /> */}
+            <CatCard />
 
             {/* <LoadingSkeleton /> */}
             {/* Testimonials */}

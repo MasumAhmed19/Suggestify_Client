@@ -34,7 +34,7 @@ const AboutPage = () => {
       {/* Values Section */}
       <div className="py-20 px-4 g1">
         <div className="max-w-6xl mx-auto">
-          <h2 className="heading1 text-center mb-16">Our Core Values</h2>
+          <h2 className="heading1 text-center mb-16">Our Core <span className="text-[#7201FF]">Values</span></h2>
           <div className="grid md:grid-cols-3 gap-12">
             <ValueCard 
               icon={FaBullseye} 
@@ -58,7 +58,7 @@ const AboutPage = () => {
       {/* Team Section */}
       <div className=" py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="heading1 text-center mb-16">Our Leadership Team</h2>
+          <h2 className="heading1 text-center mb-16">Our Leadership <span className="text-[#7201FF]">Team</span></h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[{
               name: "Sarah Johnson",
