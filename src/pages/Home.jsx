@@ -8,6 +8,7 @@ import LoadingSkeleton from '../components/LoadingSkeleton';
 import Herov2 from './HomePage/Herov2';
 import TrustedPartners from './sections/TrustedPartners';
 import Testimonials from './sections/Testimonials';
+import FAQSection from './HomePage/FAQSection';
 
 
 
@@ -28,6 +29,7 @@ const Home = () => {
             {/* <LoadingSkeleton /> */}
             {/* Testimonials */}
             {/* <Testimonials /> */}
+            <FAQSection />
        
 
         </div>
