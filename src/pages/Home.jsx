@@ -29,10 +29,10 @@ const Home = () => {
             <CatCard />
 
             {/* <LoadingSkeleton /> */}
-            {/* Testimonials */}
-            {/* <Testimonials /> */}
             <FAQSection />
        
+            {/* Testimonials */}
+            <Testimonials />
 
         </div>
     );

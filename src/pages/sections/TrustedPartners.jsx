@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const TrustedPartners = () => {
   return (
     <div className="relative overflow-hidden py-20 g2">
@@ -22,7 +24,7 @@ const TrustedPartners = () => {
               the best choices available.
             </p>
 
-            <button className="btn1 ">Learn More</button>
+            <Link to='/about' className="btn1">Learn More</Link>
           </div>
         </div>
       </div>

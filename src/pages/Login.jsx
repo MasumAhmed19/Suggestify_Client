@@ -34,9 +34,11 @@ const Login = () => {
             setUser(res.user);
             toast.success('Signing Successful');
         }).catch((err)=>{
-            toast.warn('Login Failed');
-            console.log(err);
+          toast.error('Login Failed');
+          console.log(err);
         })
+
+        form.reset()
 
     // console.log(email, password);
   };

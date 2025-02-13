@@ -24,6 +24,36 @@ const Header = () => {
           queries
         </NavLink>
       </span>
+      {
+        user && 
+        <>
+          <span>
+        <NavLink
+          className="navlink"
+          to="/my-queries"
+        >
+          My Queries
+        </NavLink>
+      </span>
+      <span>
+        <NavLink
+          className="navlink"
+          to="/my-recommendations"
+        >
+          My Recommendations
+        </NavLink>
+      </span>
+      <span>
+        <NavLink
+          className="navlink"
+          to="/recommendations-for-me"
+        >
+          Recommendations for me
+        </NavLink>
+      </span>
+        </>
+      }
+
       <span>
         <NavLink
           className="navlink"
@@ -63,7 +93,7 @@ const Header = () => {
       </span>
       <span>
         <NavLink
-          className="navlink"
+          className="navlink whitespace-nowrap"
           to={`/my-recommendations`}
         >
           My Recommendations
@@ -71,7 +101,7 @@ const Header = () => {
       </span>
       <span>
         <NavLink
-          className="navlink"
+          className="navlink whitespace-nowrap"
           to={`/recommendations-for-me`}
         >
           Recommendations for me
