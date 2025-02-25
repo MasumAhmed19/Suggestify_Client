@@ -19,7 +19,7 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 p-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 border-y border-gray-200 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
             <div className="sm:-ms-4 py-6 sm:px-4">
               <blockquote>

@@ -4,6 +4,8 @@
 
 **Suggestify** is a dynamic product recommendation platform that helps users discover better alternatives for their favorite products. Users can create, update, or delete product queries while exploring detailed suggestions from others. The platform enables users to add and delete recommendations for specific products and engage in discussions through a commenting system.  
 
+![Alt text](./public/suggestify%20hero.PNG)
+
 With **JWT-secured authentication**, Suggestify ensures a **safe and personalized** experience. Users can register and log in using **Firebase authentication**, including email/password and Google OAuth. The platform provides seamless navigation, dynamic searching, sorting, and layout customization to enhance usability.  
 
 ## 📜 Table of Contents  

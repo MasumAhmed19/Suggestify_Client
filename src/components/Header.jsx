@@ -83,18 +83,21 @@ const Header = () => {
           queries
         </NavLink>
       </span>
-      <span>
+      {
+        user && 
+        <>
+          <span>
         <NavLink
           className="navlink"
-          to={`/my-queries`}
+          to="/my-queries"
         >
           My Queries
         </NavLink>
       </span>
       <span>
         <NavLink
-          className="navlink whitespace-nowrap"
-          to={`/my-recommendations`}
+          className="navlink"
+          to="/my-recommendations"
         >
           My Recommendations
         </NavLink>
@@ -102,11 +105,13 @@ const Header = () => {
       <span>
         <NavLink
           className="navlink whitespace-nowrap"
-          to={`/recommendations-for-me`}
+          to="/recommendations-for-me"
         >
           Recommendations for me
         </NavLink>
       </span>
+        </>
+      }
       
       <span>
         <NavLink

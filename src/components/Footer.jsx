@@ -7,7 +7,7 @@ const Footer = () => {
         <section className="container mx-auto g6 text-white py-16 rounded-md">
           <div className="flex flex-col gap-5 items-center">
           <div className="relative z-10">
-        <div className="max-w-5xl px-4 xl:px-0 mx-auto">
+        <div className="md:max-w-5xl px-4 xl:px-0 mx-auto">
           <div className="mb-4">
             <h2 className="text-white text-center">
               Trusted by Open Source, enterprise, and more than 99,000 of you
@@ -16,7 +16,7 @@ const Footer = () => {
 
           <div className="flex justify-between gap-6">
             <svg
-              className="py-3 lg:py-5 w-16 h-auto md:w-20 lg:w-24 text-white"
+              className="py-3 lg:py-5 w-10 h-auto md:w-20 lg:w-24 text-white"
               // enable-background="new 0 0 2499 614"
               viewBox="0 0 2499 614"
               xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +28,7 @@ const Footer = () => {
             </svg>
 
             <svg
-              className="py-3 lg:py-5 w-16 h-auto md:w-20 lg:w-24 text-white"
+              className="py-3 lg:py-5 w-10 h-auto md:w-20 lg:w-24 text-white"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="-4.126838974812941 0.900767442746961 939.436838974813 230.18142889845947"
               width="2500"
@@ -41,7 +41,7 @@ const Footer = () => {
             </svg>
 
             <svg
-              className="py-3 lg:py-5 w-16 h-auto md:w-20 lg:w-24 text-white"
+              className="py-3 lg:py-5 w-10 h-auto md:w-20 lg:w-24 text-white"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 2428 1002"
@@ -73,7 +73,7 @@ const Footer = () => {
             </svg>
 
             <svg
-              className="py-3 lg:py-5 w-16 h-auto md:w-20 lg:w-24 text-white"
+              className="py-3 lg:py-5 w-10 h-auto md:w-20 lg:w-24 text-white"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 127 33"
@@ -97,7 +97,7 @@ const Footer = () => {
             </svg>
 
             <svg
-              className="py-3 lg:py-5 w-16 h-auto md:w-20 lg:w-24 text-white"
+              className="py-3 lg:py-5 w-10 h-auto md:w-20 lg:w-24 text-white"
               xmlns="http://www.w3.org/2000/svg"
               x="0"
               y="0"
